@@ -1,5 +1,6 @@
 # Auto Image Attributes
 
+```
 Contributors: mathieupellegrin
 Contributors: arunbasillal
 Tags: image title, image caption, image description, alt text, bulk edit images, bulk rename images, auto image attributes, auto image alt text, remove underscores
@@ -8,6 +9,7 @@ Tested up to: 4.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+```
 
 **Based on "Auto Image Attributes From Filename With Bulk Updater" by arunbasillal**
 
