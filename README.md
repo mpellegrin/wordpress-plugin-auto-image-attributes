@@ -61,6 +61,7 @@ Yes, the plugin will update image Title, Caption, Description And Alt Text from 
 ## Changelog
 
 ### 1.0
- * Fork from original plugin
- * Add settings compliance on Bulk updater
- * Cleanup markup
+  * Fork from original plugin
+  * Add settings compliance on Bulk updater
+  * Fixes bug on new uploads processing
+  * Cleanup markup
