@@ -1,4 +1,5 @@
-=== Auto Image Attributes ===
+# Auto Image Attributes
+
 Contributors: mathieupellegrin
 Contributors: arunbasillal
 Tags: image title, image caption, image description, alt text, bulk edit images, bulk rename images, auto image attributes, auto image alt text, remove underscores
@@ -12,7 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Automatically Add Image Title, Caption, Description And Alt Text From Filename. Includes a bulk updater to update existing images in the Media Library
 
-== Description ==
+## Description
 
 Automatically add Image attributes such as Image Title, Image Caption, Description And Alt Text from Image Filename.
 
@@ -39,7 +40,7 @@ The plugin settings and bulk updater are in WordPress Admin > Settings > Image A
 
 **Please remember to take a database backup before running the bulk updater.**
 
-== Installation ==
+## Installation
 
 To install this plugin:
 
@@ -47,19 +48,19 @@ To install this plugin:
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Go to WordPress Admin > Settings > Image Attributes.
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions
 
-= Will this plugin update existing images in the media library? =
+### Will this plugin update existing images in the media library?
 
 Yes, the plugin will update image Title, Caption, Description And Alt Text from the image filename for both existing images in the media library and new uploads.
 
-== Screenshots ==
+## Screenshots
 
 1. The settings page in WordPress Admin > Settings > Image Attributes
 
-== Changelog ==
+## Changelog
 
-= 1.0 =
+### 1.0
  * Fork from original plugin
  * Add settings compliance on Bulk updater
  * Cleanup markup
