@@ -105,7 +105,7 @@ register_uninstall_hook(__FILE__, 'autoimageattributes_uninstall_plugin' );
 /*--------------------------------------*/
 
 function autoimageattributes_auto_image_attributes_callback() {
-	echo '<p>' . __('Automatically add Image attributes such as Image Title, Image Caption, Description And Alt Text from Image Filename for new uploads.', 'auto_image_attributes') . '</p>';
+	echo '<p>' . __('Automatically add Image attributes such as Image Title, Image Caption, Description And Alt Text from Image Filename.', 'auto_image_attributes') . '</p>';
 }
 
 // General Settings Field Callback
@@ -129,25 +129,25 @@ function autoimageattributes_auto_image_attributes_settings_field_callback() {
 	<!-- Auto Add Image Title  -->
 	<input type="checkbox" name="autoimageattributes_settings[image_title]" id="autoimageattributes_settings[image_title]" value="1"
 	<?php if ( isset( $settings['image_title'] ) ) { checked( '1', $settings['image_title'] ); } ?>>
-	<label for="autoimageattributes_settings[image_title]"><?php _e('Set Image Title from filename for new uploads', 'auto_image_attributes') ?></label>
+	<label for="autoimageattributes_settings[image_title]"><?php _e('Set Image Title from filename', 'auto_image_attributes') ?></label>
 	<br>
 
 	<!-- Auto Add Image Caption  -->
 	<input type="checkbox" name="autoimageattributes_settings[image_caption]" id="autoimageattributes_settings[image_caption]" value="1"
 	<?php if ( isset( $settings['image_caption'] ) ) { checked( '1', $settings['image_caption'] ); } ?>>
-	<label for="autoimageattributes_settings[image_caption]"><?php _e('Set Image Caption from filename for new uploads', 'auto_image_attributes') ?></label>
+	<label for="autoimageattributes_settings[image_caption]"><?php _e('Set Image Caption from filename', 'auto_image_attributes') ?></label>
 	<br>
 
 	<!-- Auto Add Image Description  -->
 	<input type="checkbox" name="autoimageattributes_settings[image_description]" id="autoimageattributes_settings[image_description]" value="1"
 	<?php if ( isset( $settings['image_description'] ) ) { checked( '1', $settings['image_description'] ); } ?>>
-	<label for="autoimageattributes_settings[image_description]"><?php _e('Set Image Description from filename for new uploads', 'auto_image_attributes') ?></label>
+	<label for="autoimageattributes_settings[image_description]"><?php _e('Set Image Description from filename', 'auto_image_attributes') ?></label>
 	<br>
 
 	<!-- Auto Add Alt Text -->
 	<input type="checkbox" name="autoimageattributes_settings[image_alttext]" id="autoimageattributes_settings[image_alttext]" value="1"
 	<?php if ( isset( $settings['image_alttext'] ) ) { checked( '1', $settings['image_alttext'] ); } ?>>
-	<label for="autoimageattributes_settings[image_alttext]"><?php _e('Set Image Alt Text from filename for new uploads', 'auto_image_attributes') ?></label>
+	<label for="autoimageattributes_settings[image_alttext]"><?php _e('Set Image Alt Text from filename', 'auto_image_attributes') ?></label>
 	<br>
 
 	<?php
