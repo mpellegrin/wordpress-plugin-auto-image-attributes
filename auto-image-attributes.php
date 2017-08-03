@@ -265,11 +265,12 @@ function autoimageattributes_auto_image_attributes( $post_ID ) {
 	$image_name = basename($attachment->guid, '.'.$image_extension['extension']);
 
 	// Process the image name and neatify it
+	$attachment_title = $image_name;
 	if ( isset( $settings['hyphens'] ) && boolval($settings['hyphens']) ) {
-		$attachment_title 	= str_replace( '-', ' ', $image_name );	// Hyphen Removal
+		$attachment_title 	= str_replace( '-', ' ', $attachment_title );	// Hyphen Removal
 	}
 	if ( isset( $settings['under_score'] ) && boolval($settings['under_score']) ) {
-		$attachment_title 	= str_replace( '_', ' ', $image_name );	// Underscore Removal
+		$attachment_title 	= str_replace( '_', ' ', $attachment_title );	// Underscore Removal
 	}
 	$attachment_title 	= ucwords( $attachment_title );					// Capitalize First Word
 
@@ -277,16 +278,16 @@ function autoimageattributes_auto_image_attributes( $post_ID ) {
 	$uploaded_image['ID']         	= $post_ID;
 
 	if ( isset( $settings['image_title'] ) && boolval($settings['image_title']) ) {
-		$uploaded_image['post_title'] 	= $image_name;	// Image Title
+		$uploaded_image['post_title'] 	= $attachment_title;	// Image Title
 	}
 	if ( isset( $settings['image_caption'] ) && boolval($settings['image_caption']) ) {
-		$uploaded_image['post_excerpt'] = $image_name;	// Image Caption
+		$uploaded_image['post_excerpt'] = $attachment_title;	// Image Caption
 	}
 	if ( isset( $settings['image_description'] ) && boolval($settings['image_description']) ) {
-		$uploaded_image['post_content'] = $image_name;	// Image Description
+		$uploaded_image['post_content'] = $attachment_title;	// Image Description
 	}
 	if ( isset( $settings['image_alttext'] ) && boolval($settings['image_alttext']) ) {
-		update_post_meta( $post_ID, '_wp_attachment_image_alt', $image_name ); // Image Alt Text
+		update_post_meta( $post_ID, '_wp_attachment_image_alt', $attachment_title ); // Image Alt Text
 	}
 
 	wp_update_post( $uploaded_image );
@@ -318,6 +319,7 @@ function autoimageattributes_rename_old_image() {
 	$image_name = basename($image->guid, '.'.$image_extension['extension']);
 
 	// Process the image name and neatify it
+	$attachment_title = $image_name;
 	if ( isset( $settings['hyphens'] ) && boolval($settings['hyphens']) ) {
 		$attachment_title 	= str_replace( '-', ' ', $attachment_title );	// Hyphen Removal
 	}
@@ -325,6 +327,16 @@ function autoimageattributes_rename_old_image() {
 		$attachment_title 	= str_replace( '_', ' ', $attachment_title );	// Underscore Removal
 	}
 	$attachment_title 	= ucwords( $attachment_title );					// Capitalize First Word
+
+	// Default Values For Settings
+	$defaults = array(
+		'image_title' => '1',
+		'image_caption' => '1',
+		'image_description' => '1',
+		'image_alttext' => '1',
+		'hyphens' => '1',
+		'under_score' => '1',
+	);
 
 	// Retrieve settings
 	$settings = get_option('autoimageattributes_settings', $defaults);
@@ -334,19 +346,19 @@ function autoimageattributes_rename_old_image() {
 	  'ID' => $image->ID,
 	);
 	if ( isset( $settings['image_title'] ) && boolval($settings['image_title']) ) {
-		$updated_image['post_title'] 	= $image_name;	// Image Title
+		$updated_image['post_title'] 	= $attachment_title;	// Image Title
 	}
 	if ( isset( $settings['image_caption'] ) && boolval($settings['image_caption']) ) {
-		$updated_image['post_excerpt'] = $image_name;	// Image Caption
+		$updated_image['post_excerpt'] = $attachment_title;	// Image Caption
 	}
 	if ( isset( $settings['image_description'] ) && boolval($settings['image_description']) ) {
-		$updated_image['post_content'] = $image_name;	// Image Description
+		$updated_image['post_content'] = $attachment_title;	// Image Description
 	}
 	wp_update_post( $updated_image );
 
 	// Update Image Alt Text (stored in post_meta table)
 	if ( isset( $settings['image_alttext'] ) && boolval($settings['image_alttext']) ) {
-		update_post_meta( $image->ID, '_wp_attachment_image_alt', $image_name ); // Image Alt Text
+		update_post_meta( $image->ID, '_wp_attachment_image_alt', $attachment_title ); // Image Alt Text
 	}
 
 	// Increment Counter And Update It
